@@ -5,7 +5,7 @@ let gridWidth, gridHeight;
 function setup() {
   createCanvas(windowWidth, windowHeight);
   colorMode(HSB, 360, 100, 100); //per una questione di comodità nel gestire i colori
-  frameRate(1);
+  noLoop();
   
   // Calcola il numero di celle per larghezza e altezza
   gridWidth = floor((width - margin * 2) / cellSize);
