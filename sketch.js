@@ -15,12 +15,12 @@ function setup() {
 function draw() {
   background(0, 0, 95); // questo è il codice dello sfondo  
   
-  // Calcola l'offset per centrare la griglia
-  let offsetX = (width - gridWidth * cellSize) / 2;
+  
+  let offsetX = (width - gridWidth * cellSize) / 2;// Calcola l'offset per centrare la griglia
   let offsetY = (height - gridHeight * cellSize) / 2;
   
-  // Disegna ogni composizione nella sua cella della griglia
-  for (let i = 0; i < gridWidth; i++) {
+  
+  for (let i = 0; i < gridWidth; i++) { // Disegna ogni composizione nella sua cella della griglia
     for (let j = 0; j < gridHeight; j++) {
       push();
       translate(offsetX + i * cellSize + margin, offsetY + j * cellSize + margin);
@@ -44,7 +44,6 @@ function draw() {
     }
   }
 }
-
 function drawSmallCircle(size, circleRadius) {
   let hue = random(0, 20);
   let saturation = random(70, 100);
@@ -100,4 +99,16 @@ function drawCurvedLine(size, circleRadius) {
 function mousePressed() {
   // Rigenera tutte le composizioni
   redraw();
+  
+}
+
+function windowResized() {
+  
+  // Ricalcola le dimensioni della griglia
+  gridWidth = floor((width - margin * 2) / cellSize);
+  gridHeight = floor((height - margin * 2) / cellSize);
+  // Ridisegna l'intera scena
+  setup(); // Richiama la funzione setup per ricalcolare le dimensioni e le celle
+  redraw(); // Ridisegna la scena 
+  
 }
